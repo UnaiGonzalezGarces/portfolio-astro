@@ -1,11 +1,65 @@
 ---
-import Welcome from '../components/Welcome.astro';
+import LinkedInIcon from '../components/icons/LinkedInIcon.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Badge from '../components/Badge.astro';
+import SocialPill from '../components/SocialPill.astro';
+import GitHubIcon from '../components/icons/GitHubIcon.astro';
+import SendMailIcon from '../components/icons/SendMailIcon.astro';
+import Experience from '../components/Experience.astro';
+import Container from '../components/Container.astro';
+import BriefcaseIcon from '../components/icons/BriefcaseIcon.astro';
+import CodeIcon from '../components/icons/CodeIcon.astro';
+import Projects from '../components/Projects.astro';
 ---
 
-<Layout>
-	<Welcome />
+<Layout
+  title='Unai González Garcés - Desarrollador y programador Web'
+  description='Contacta con Unai González Garcés para contratarlo para crear tu página web. Desarrollador web frontend, especializado en páginas web de estética moderna'
+>
+  <main class='px-4'>
+    <Container class='py-44 pb-32' id='sobre-mi'>
+      <h1 class='text-white text-2xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-2 pb-6 lg:pb-10'>
+        Hey, soy Unai González <a
+          href='https://www.linkedin.com/in/unai-gonzález-garcés-858b35273'
+          target='_blank'
+          rel='noopener'
+          class='flex justify-center items-center'><Badge>Disponible para trabajar</Badge></a
+        >
+      </h1>
+      <h2 class='text-xl lg:text-2xl text-wrap opacity-80 max-w-[700px]'>
+        +1 año de experiencia. <span class='text-yellow-200'>Desarrollador Front-End</span>. De Barcelona, España.
+      </h2>
+
+      <nav class='flex gap-4 mt-8 flex-wrap'>
+        <SocialPill href='https://www.linkedin.com/in/unai-gonzález-garcés-858b35273'>
+          <LinkedInIcon class='size-4 md:size-6' />
+          Linkedin
+        </SocialPill>
+        <SocialPill href='https://github.com/UnaiGonzalezGarces'>
+          <GitHubIcon class='size-4 md:size-6' />
+          GitHub
+        </SocialPill>
+        <SocialPill href='mailto:unaiggarces@gmail.com'>
+          <SendMailIcon class='size-4 md:size-6' />
+          unaiggarces@gmail.com
+        </SocialPill>
+      </nav>
+    </Container>
+
+    <Container id='experiencia'>
+      <h2 class='text-3xl font-semibold mb-6 flex gap-x-3 items-center'>
+        <BriefcaseIcon class='size-5 md:size-7' />
+        Experiencia laboral
+      </h2>
+      <Experience />
+    </Container>
+
+    <Container id='proyectos'>
+      <h2 class='text-3xl font-semibold mb-6 flex gap-x-3 items-center'>
+        <CodeIcon class='size-5 md:size-7' />
+        Proyectos
+      </h2>
+      <Projects />
+    </Container>
+  </main>
 </Layout>

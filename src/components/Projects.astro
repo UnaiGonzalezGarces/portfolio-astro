@@ -1,0 +1,65 @@
+---
+import NextJsIcon from './icons/NextJSIcon.astro';
+import TailwindIcon from './icons/TailwindIcon.astro';
+import PrismaIcon from './icons/PrismaIcon.astro';
+import MongoDBIcon from './icons/MongoDBIcon.astro';
+import ReactJSIcon from './icons/ReactJSIcon.astro';
+
+const TAGS = {
+  NEXT: {
+    name: 'Next.js',
+    class: 'border-white',
+    icon: NextJsIcon,
+  },
+  TAILWIND: {
+    name: 'TailwindCSS',
+    class: 'border-[#73bcf6]',
+    icon: TailwindIcon,
+  },
+  PRISMA: {
+    name: 'Prisma',
+    class: 'border-white',
+    icon: PrismaIcon,
+  },
+  MONGO: {
+    name: 'MongoDB',
+    class: 'border-green-500',
+    icon: MongoDBIcon,
+  },
+  REACT: {
+    name: 'ReactJS',
+    class: 'border-blue-500',
+    icon: ReactJSIcon,
+  },
+};
+const PROJECTS = [
+  {
+    title: 'A company management dashboard',
+    desc: 'Simple dashboard to manage companies and clients, made with NextJS following a course with the purpose of learning the framework',
+    link: '#',
+    github: 'https://github.com/UnaiGonzalezGarces/company-dashboard',
+    image: '/public/images/projects/project-1.webp',
+    tags: [TAGS.NEXT, TAGS.PRISMA, TAGS.TAILWIND, TAGS.MONGO, TAGS.REACT],
+  },
+];
+---
+
+{
+  PROJECTS.map(({ title, desc, tags, link, github, image }) => (
+    <article>
+      <h3 class='text-2xl font-semibold text-yellow-200 mb-2'>{title}</h3>
+      <p class='text-lg mb-4 text-pretty'>{desc}</p>
+      <ul class='flex gap-x-2 flex-row'>
+        {tags.map((tag) => (
+          <li>
+            <span class={`border bg-slate-900 flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 items-center`}>
+              <tag.icon class='size-5' />
+              {tag.name}
+            </span>
+          </li>
+        ))}
+      </ul>
+      <img class='rounded shadow-2xl shadow-white/10' src={image} alt={`Captura de pantall del proyecto ${title}`} />
+    </article>
+  ))
+}
