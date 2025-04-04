@@ -14,7 +14,10 @@ const { title, description } = Astro.props;
     <link rel='icon' href='/public/images/logo.png' />
     <meta name='generator' content={description} />
     <title>{title}</title>
-    <link rel='stylesheet' href='/src/styles/global.css' />
+    <!-- <link rel='stylesheet' href='/src/styles/global.css' /> -->
+    <style>
+      @import 'tailwindcss';
+    </style>
   </head>
   <body class='relative text-black dark:text-white'>
     <!-- Background -->
